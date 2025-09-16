@@ -62,8 +62,6 @@ export function TopLeftCoordinateSystem({ width = 400, height = 400, gridSize = 
     graphics.lineTo(0, height);
     graphics.lineTo(ARROW_OFFSET, height - ARROW_SIZE);
     graphics.stroke();
-
-    console.log('draw top-left coordinate system', { width, height, gridSize });
     
   }, [width, height, gridSize]);
 

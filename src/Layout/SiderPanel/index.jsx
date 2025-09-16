@@ -3,7 +3,7 @@ import { cn } from '../../utils/cn'
 export default function SiderPanel({ projects = [], selectedProjectId, onProjectSelect }) {
 
   return (
-    <div className="w-80 bg-gray-50 border-r border-gray-200 flex flex-col">
+    <div className="w-80 bg-gray-50 border-r border-gray-200 flex flex-col shrink-0">
       <div className="p-6 border-b border-gray-200">
         <h2 className="text-lg font-semibold text-gray-800">项目列表</h2>
       </div>

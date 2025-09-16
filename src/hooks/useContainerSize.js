@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 
 /**
  * 自定义 Hook 用于监听容器尺寸变化
- * @param {Object} initialSize - 初始尺寸，默认 { width: 1000, height: 1000 }
+ * @param {Object} initialSize - 初始尺寸，默认 { width: 600, height: 600 }
  * @returns {Object} { containerRef, canvasSize } - 容器引用和当前尺寸
  */
-export function useContainerSize(initialSize = { width: 1000, height: 1000 }) {
+export function useContainerSize(initialSize = { width: 600, height: 600 }) {
   const containerRef = useRef(null);
   const [canvasSize, setCanvasSize] = useState(initialSize);
 

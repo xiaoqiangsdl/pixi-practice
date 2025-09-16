@@ -16,7 +16,7 @@ const DefaultComponent = () => (
 );
 
 function App() {
-  const [selectedProjectId, setSelectedProjectId] = useState(2);
+  const [selectedProjectId, setSelectedProjectId] = useState(3);
   
   const selectedProject = PROJECTS.find(p => p.id === selectedProjectId);
   const CurrentComponent = selectedProject?.project || DefaultComponent;
@@ -30,7 +30,7 @@ function App() {
           selectedProjectId={selectedProjectId}
           onProjectSelect={setSelectedProjectId}
         />
-        <div className="flex-1 height-full">
+        <div className="flex-1 height-full overflow-hidden">
           <CurrentComponent />
         </div>
       </div>
