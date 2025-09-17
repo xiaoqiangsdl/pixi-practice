@@ -1,7 +1,5 @@
-import { Assets } from 'pixi.js';
 import { useState, useEffect } from 'react';
-import { useApplication, useTick } from '@pixi/react';
-import { FISH_TYPES } from './constants';
+import { useApplication } from '@pixi/react';
 
 const STAR_COUNT = 20;
 
