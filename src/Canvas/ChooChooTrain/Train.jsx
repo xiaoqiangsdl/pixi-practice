@@ -232,7 +232,7 @@ function TrainCarriage() {
   );
 }
 
-export function Train() {
+export function Train({ onPositionChange }) {
   const { app } = useApplication();
   const [shakeOffset, setShakeOffset] = useState(0);
   const elapsedRef = useRef(0);
@@ -246,6 +246,13 @@ export function Train() {
     elapsedRef.current += deltaTime;
     const offset = (Math.sin(elapsedRef.current * 0.5 * ANIMATION_SPEED) * 0.5 + 0.5) * SHAKE_DISTANCE;
     setShakeOffset(offset);
+
+    // 传递烟囱位置给父组件
+    if (onPositionChange) {
+      const currentChimneyX = trainX + (CABIN_WIDTH + FRONT_WIDTH - FRONT_RADIUS - CHIMNEY_BASE_WIDTH / 2) * TRAIN_SCALE;
+      const currentChimneyY = (baseY + offset) + (-FRONT_HEIGHT - CHIMNEY_HEIGHT) * TRAIN_SCALE;
+      onPositionChange(currentChimneyX, currentChimneyY);
+    }
   });
 
   return (

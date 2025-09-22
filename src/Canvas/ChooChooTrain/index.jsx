@@ -7,6 +7,7 @@ import {
   Graphics,
   Sprite,
 } from 'pixi.js';
+import { useState } from 'react';
 
 import { TopLeftCoordinateSystem } from '../components/TopLeftCoordinateSystem'
 import { useContainerSize } from '../../hooks/useContainerSize'
@@ -16,6 +17,7 @@ import { Mountains } from './Mountains';
 import { Trees } from './Trees';
 import { Ground } from './Ground';
 import { Train } from './Train';
+import { Smokes } from './Smokes';
 
 // extend tells @pixi/react what Pixi.js components are available
 extend({
@@ -28,6 +30,11 @@ extend({
 export default function App() {
   // 使用自定义 Hook 监听容器尺寸变化
   const { containerRef, canvasSize } = useContainerSize();
+  const [trainPosition, setTrainPosition] = useState({ x: 600, y: 600 });
+
+  const handleTrainPositionChange = (x, y) => {
+    setTrainPosition({ x, y });
+  };
 
   if (!containerRef.current) {
     return <div ref={containerRef} className="w-full h-full">loading...</div>
@@ -49,7 +56,8 @@ export default function App() {
         <Mountains />
         <Trees/>
         <Ground />
-        <Train />
+        <Train onPositionChange={handleTrainPositionChange} />
+        <Smokes baseX={trainPosition.x} baseY={trainPosition.y} />
       </Application>
     </div>
   );
